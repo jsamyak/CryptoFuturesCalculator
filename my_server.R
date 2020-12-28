@@ -1,7 +1,9 @@
 library(shiny)
 
 my_server <- function(input, output) {
-  
+  output$initial_margin <- renderText({
+    input$entry_price * input$asset_quantity / input$leverage
+  })
 }
 
 # input parameters
