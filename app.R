@@ -23,7 +23,11 @@ my_ui <- shinyUI(
     
     h4("Net return percentage", style = "text-align:left;color:black;
        background-color:lavender;padding:15px;border-radius:10px"),
-    textOutput("net_return_percentage")
+    textOutput("net_return_percentage"),
+    
+    h4("Initial Liquidation Price", style = "text-align:left;color:black;
+       background-color:lavender;padding:15px;border-radius:10px"),
+    textOutput("initial_liquidation_price")
   )
 )
 
