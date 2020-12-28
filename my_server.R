@@ -1,6 +1,8 @@
 library(shiny)
 
-my_server <- function(input, output) {}
+my_server <- function(input, output) {
+  
+}
 
 # input parameters
 
