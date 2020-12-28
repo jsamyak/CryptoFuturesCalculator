@@ -4,6 +4,10 @@ my_server <- function(input, output) {
   output$initial_margin <- renderText({
     input$entry_price * input$asset_quantity / input$leverage
   })
+  
+  output$net_profit <- renderText({
+    (input$exit_price - input$entry_price) * input$asset_quantity
+  })
 }
 
 # input parameters
