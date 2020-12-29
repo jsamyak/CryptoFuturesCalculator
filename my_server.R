@@ -47,7 +47,7 @@ initialLiquidationPriceCalculator <- function(entryPrice, leverage){
 }
 
 maintenanceMarginCalculator <- function(entryPrice, maintenanceMarginRate) {
-  return(entryPrice * maintenanceMarginRate)
+  return(entryPrice * (maintenanceMarginRate / 100))
 }
 
 # input parameters
