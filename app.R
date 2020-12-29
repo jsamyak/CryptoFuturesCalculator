@@ -19,7 +19,7 @@ my_ui <- shinyUI(
         numericInput("exit_price", "Exit Price", NA),
         numericInput("leverage", "Leverage", NA),
         numericInput("asset_quantity", "Asset Quantity", NA),
-        numericInput("maintenance_margin_rate", "Maintenance Margin Rate", NA)
+        numericInput("maintenance_margin_rate", "Maintenance Margin Rate (in %)", NA)
       ),
       mainPanel(
         h4("Initial Margin Required", style = "text-align:center;color:black;
