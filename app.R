@@ -23,30 +23,47 @@ my_ui <- shinyUI(
       ),
       mainPanel(
         h4("Initial Margin Required", style = "text-align:center;color:black;
-       background-color:lavender;padding:15px;border-radius:10px"),
-        strong(textOutput("initial_margin")),
+          background-color:lavender;padding:15px;border-radius:10px"),
+        fluidRow(
+          textOutput("initial_margin"), 
+          style = "text-align:center"  
+        ),
         
         h4("Net profit (without fees)", style = "text-align:left;color:black;
-       background-color:lavender;padding:15px;border-radius:10px"),
-        textOutput("net_profit"),
-        
+          background-color:lavender;padding:15px;border-radius:10px"),
+        fluidRow(
+          textOutput("net_profit"), 
+          style = "text-align:center"  
+        ),
+
         h4("Net return percentage", style = "text-align:left;color:black;
-       background-color:lavender;padding:15px;border-radius:10px"),
-        textOutput("net_return_percentage"),
+          background-color:lavender;padding:15px;border-radius:10px"),
+        fluidRow(
+          textOutput("net_return_percentage"), 
+          style = "text-align:center"  
+        ),
         
         h4("Initial Liquidation Price", style = "text-align:left;color:black;
-       background-color:lavender;padding:15px;border-radius:10px"),
-        textOutput("initial_liquidation_price"),
+          background-color:lavender;padding:15px;border-radius:10px"),
+        fluidRow(
+          textOutput("initial_liquidation_price"), 
+          style = "text-align:center"  
+        ),
         
         h4("Maintenance Margin", style = "text-align:left;color:black;
-       background-color:lavender;padding:15px;border-radius:10px"),
-        textOutput("maintenance_margin"),
+          background-color:lavender;padding:15px;border-radius:10px"),
+        fluidRow(
+          textOutput("maintenance_margin"), 
+          style = "text-align:center"  
+        ),
         
         h4("Final Liquidation Price", style = "text-align:left;color:black;
-       background-color:lavender;padding:15px;border-radius:10px"),
-        textOutput("final_liquidation_price")
-      ),
-      fluid = TRUE
+          background-color:lavender;padding:15px;border-radius:10px"),
+        fluidRow(
+          textOutput("final_liquidation_price"), 
+          style = "text-align:center"  
+        ),
+      )
     )
   )
 )
