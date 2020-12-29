@@ -31,7 +31,11 @@ my_ui <- shinyUI(
     
     h4("Maintenance Margin", style = "text-align:left;color:black;
        background-color:lavender;padding:15px;border-radius:10px"),
-    textOutput("maintenance_margin")
+    textOutput("maintenance_margin"),
+    
+    h4("Final Liquidation Price", style = "text-align:left;color:black;
+       background-color:lavender;padding:15px;border-radius:10px"),
+    textOutput("final_liquidation_price")
   )
 )
 
