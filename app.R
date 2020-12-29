@@ -29,35 +29,35 @@ my_ui <- shinyUI(
           style = "text-align:center"  
         ),
         
-        h4("Net profit (without fees)", style = "text-align:left;color:black;
+        h4("Net profit (without fees)", style = "text-align:center;color:black;
           background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
           textOutput("net_profit"), 
           style = "text-align:center"  
         ),
 
-        h4("Net return percentage", style = "text-align:left;color:black;
+        h4("Net return percentage", style = "text-align:center;color:black;
           background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
           textOutput("net_return_percentage"), 
           style = "text-align:center"  
         ),
         
-        h4("Initial Liquidation Price", style = "text-align:left;color:black;
+        h4("Initial Liquidation Price", style = "text-align:center;color:black;
           background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
           textOutput("initial_liquidation_price"), 
           style = "text-align:center"  
         ),
         
-        h4("Maintenance Margin", style = "text-align:left;color:black;
+        h4("Maintenance Margin", style = "text-align:center;color:black;
           background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
           textOutput("maintenance_margin"), 
           style = "text-align:center"  
         ),
         
-        h4("Final Liquidation Price", style = "text-align:left;color:black;
+        h4("Final Liquidation Price", style = "text-align:center;color:black;
           background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
           textOutput("final_liquidation_price"), 

@@ -2,30 +2,35 @@ library(shiny)
 
 my_server <- function(input, output) {
   output$initial_margin <- renderText({
-    initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage)
+    c(initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage),
+      "USDT")
   })
   
   output$net_profit <- renderText({
-    netProfitCalculator(input$entry_price, input$exit_price, input$asset_quantity)
+    c(netProfitCalculator(input$entry_price, input$exit_price, input$asset_quantity),
+      "USDT")
   })
   
   output$net_return_percentage <- renderText({
-    netProfitCalculator(input$entry_price, input$exit_price, input$asset_quantity) /
-      initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage) *
-      100
+    c(netProfitCalculator(input$entry_price, input$exit_price, input$asset_quantity) /
+      initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage) *100,
+      "%")
   })
   
   output$initial_liquidation_price <- renderText({
-    initialLiquidationPriceCalculator(input$entry_price, input$leverage)
+    c(initialLiquidationPriceCalculator(input$entry_price, input$leverage),
+      "USDT")
   })
   
   output$maintenance_margin <- renderText({
-    maintenanceMarginCalculator(input$entry_price, input$maintenance_margin_rate)
+    c(maintenanceMarginCalculator(input$entry_price, input$maintenance_margin_rate),
+      "USDT")
   })
   
   output$final_liquidation_price <- renderText({
-    initialLiquidationPriceCalculator(input$entry_price, input$leverage) +
-      maintenanceMarginCalculator(input$entry_price, input$maintenance_margin_rate)
+    c(initialLiquidationPriceCalculator(input$entry_price, input$leverage) +
+      maintenanceMarginCalculator(input$entry_price, input$maintenance_margin_rate),
+      "USDT")
   })
 }
 
