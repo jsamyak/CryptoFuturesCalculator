@@ -64,7 +64,8 @@ my_ui <- shinyUI(
           style = "text-align:center"  
         ),
       )
-    )
+    ),
+    hr(style = "border-top: 2px solid #000000;")
   )
 )
 
