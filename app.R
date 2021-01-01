@@ -27,7 +27,8 @@ my_ui <- shinyUI(
                          "VIP 7" = 7,
                          "VIP 8" = 8,
                          "VIP 9" = 9),
-          inline = TRUE
+          inline = TRUE,
+          selected = 0
         ),
         
         prettyRadioButtons(
@@ -98,7 +99,6 @@ my_ui <- shinyUI(
           style = "text-align:center;color:black;
           background-color:lavender;border-radius:10px"
         ),
-
         fluidRow(
           column(2),
           column(3, textOutput("return_percentage")
@@ -109,8 +109,6 @@ my_ui <- shinyUI(
           column(2),
           style = "text-align:center;color:black"
         ),
-        
-        
         
         h4("Total Fees", style = "text-align:center;color:black;
           background-color:lavender;padding:15px;border-radius:10px"),
