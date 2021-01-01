@@ -140,15 +140,15 @@ my_ui <- shinyUI(
         fluidRow(
           column(2),
           column(2,
-                 h4("Entry Fee")
+                 textOutput("entry_fees")
           ),
           column(1),
           column(2,
-                 h4("Exit Fee")
+                 textOutput("exit_fees")
           ),
           column(1),
           column(2,
-                 h4("Total Fee")
+                 textOutput("total_fees")
           ),
           column(2),
           style = "text-align:center;color:black"
