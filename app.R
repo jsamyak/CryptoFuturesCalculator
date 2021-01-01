@@ -49,14 +49,7 @@ my_ui <- shinyUI(
         fluidRow(
           textOutput("net_return_percentage"), 
           style = "text-align:center"  
-        ),
-        
-        h4("Initial Liquidation Price", style = "text-align:center;color:black;
-          background-color:lavender;padding:15px;border-radius:10px"),
-        fluidRow(
-          textOutput("initial_liquidation_price"), 
-          style = "text-align:center"  
-        ),
+        )
       )
     ),
     hr(style = "border-top: 2px solid #000000;")

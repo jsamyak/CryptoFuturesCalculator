@@ -16,11 +16,6 @@ my_server <- function(input, output) {
       initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage) *100,
       "%")
   })
-  
-  output$initial_liquidation_price <- renderText({
-    c(initialLiquidationPriceCalculator(input$entry_price, input$leverage),
-      "USDT")
-  })
 }
 
 initialMarginCalculator <- function(entryPrice, assetQuantity, leverage) {
@@ -29,10 +24,6 @@ initialMarginCalculator <- function(entryPrice, assetQuantity, leverage) {
 
 netProfitCalculator <- function(entryPrice, exitPrice, assetQuantity) {
   return ((exitPrice - entryPrice) * assetQuantity)
-}
-
-initialLiquidationPriceCalculator <- function(entryPrice, leverage){
-  return(entryPrice - (entryPrice / leverage))
 }
 
 # input parameters
