@@ -36,6 +36,14 @@ my_ui <- shinyUI(
           choices = list("Yes" = 0,
                          "No" = 1),
           inline = TRUE
+        ),
+        
+        prettyRadioButtons(
+          "bnb_fees",
+          p("Are you using bnb for fee payments?"),
+          choices = list("Yes" = 0,
+                         "No" = 1),
+          inline = TRUE
         )
       ),
       mainPanel(
