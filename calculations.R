@@ -11,12 +11,11 @@ profitCalculator <- function(entryPrice, exitPrice, assetQuantity) {
 trading_fee <- read.csv("docs/feeStructure/USDTFuturesTradingFeeRate.csv",
                         stringsAsFactors = FALSE)
 
-totalFeesCalculator <- function(trading_level,
-                                maker_or_taker,
-                                entry_price,
-                                exit_price,
-                                asset_quantity,
-                                bnb_fees) {
+individualFeeCalculator <- function(trading_level,
+                                    maker_or_taker,
+                                    asset_price,
+                                    asset_quantity,
+                                    bnb_fees){
   temp_table <- filter(trading_fee, Level == trading_level)
   
   if (maker_or_taker == 0) {
@@ -30,6 +29,6 @@ totalFeesCalculator <- function(trading_level,
     final_fee_rate <- final_fee_rate * 0.9
   }
   
-  total_fee <- (entry_price + exit_price) * asset_quantity * final_fee_rate / 100
+  total_fee <- asset_price * asset_quantity * final_fee_rate / 100
   return(total_fee)
 }
