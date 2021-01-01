@@ -32,8 +32,17 @@ my_ui <- shinyUI(
         ),
         
         prettyRadioButtons(
-          "maker_or_taker",
-          p("Maker / Taker"),
+          "entry_maker_or_taker",
+          p("Entry - Maker / Taker"),
+          choices = list("Maker" = 0,
+                         "Taker" = 1),
+          inline = TRUE,
+          selected = 1
+        ),
+        
+        prettyRadioButtons(
+          "exit_maker_or_taker",
+          p("Exit - Maker / Taker"),
           choices = list("Maker" = 0,
                          "Taker" = 1),
           inline = TRUE,
