@@ -42,7 +42,12 @@ my_server <- function(input, output) {
   })
   
   output$exit_fees <- renderText({
-    
+    c(individualFeeCalculator(input$trading_level,
+                              input$exit_maker_or_taker,
+                              input$exit_price,
+                              input$asset_quantity,
+                              input$bnb_fees),
+      "USDT")
   })
   
   output$total_fees <- renderText({
