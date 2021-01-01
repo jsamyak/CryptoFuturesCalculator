@@ -9,6 +9,11 @@ my_ui <- shinyUI(
     h1("Crypto Futures Calculator"),
     sidebarLayout(
       sidebarPanel(
+        numericInput("entry_price", "Entry Price", NA),
+        numericInput("exit_price", "Exit Price", NA),
+        numericInput("leverage", "Leverage", NA),
+        numericInput("asset_quantity", "Asset Quantity", NA),
+        
         prettyRadioButtons(
           "trading_level",
           p("Trading Level"),
@@ -24,10 +29,14 @@ my_ui <- shinyUI(
                          "VIP 9" = 9),
           inline = TRUE
         ),
-        numericInput("entry_price", "Entry Price", NA),
-        numericInput("exit_price", "Exit Price", NA),
-        numericInput("leverage", "Leverage", NA),
-        numericInput("asset_quantity", "Asset Quantity", NA),
+        
+        prettyRadioButtons(
+          "maker_or_taker",
+          p("Maker / Taker"),
+          choices = list("Yes" = 0,
+                         "No" = 1),
+          inline = TRUE
+        )
       ),
       mainPanel(
         h4("Initial Margin Required", style = "text-align:center;color:black;
@@ -49,7 +58,7 @@ my_ui <- shinyUI(
         fluidRow(
           textOutput("net_return_percentage"), 
           style = "text-align:center"  
-        )
+        ),
       )
     ),
     hr(style = "border-top: 2px solid #000000;")
