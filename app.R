@@ -9,17 +9,44 @@ my_ui <- shinyUI(
     h1("Crypto Futures Calculator"),
     sidebarLayout(
       sidebarPanel(
-        prettyRadioButtons(
-          "max_leverage",
-          p("Asset Maximum leverage"),
-          choices = list("125x" = 1, "100x" = 2, "75x" = 3, "50x" = 4, "20x" = 5),
-          inline = TRUE
-        ),
         numericInput("entry_price", "Entry Price", NA),
         numericInput("exit_price", "Exit Price", NA),
         numericInput("leverage", "Leverage", NA),
         numericInput("asset_quantity", "Asset Quantity", NA),
-        numericInput("maintenance_margin_rate", "Maintenance Margin Rate (in %)", NA)
+        
+        prettyRadioButtons(
+          "trading_level",
+          p("Trading Level"),
+          choices = list("VIP 0" = 0,
+                         "VIP 1" = 1,
+                         "VIP 2" = 2,
+                         "VIP 3" = 3,
+                         "VIP 4" = 4,
+                         "VIP 5" = 5,
+                         "VIP 6" = 6,
+                         "VIP 7" = 7,
+                         "VIP 8" = 8,
+                         "VIP 9" = 9),
+          inline = TRUE,
+          selected = 0
+        ),
+        
+        prettyRadioButtons(
+          "maker_or_taker",
+          p("Maker / Taker"),
+          choices = list("Maker" = 0,
+                         "Taker" = 1),
+          inline = TRUE,
+          selected = 1
+        ),
+        
+        prettyRadioButtons(
+          "bnb_fees",
+          p("Are you using bnb for fee payments?"),
+          choices = list("Yes" = 0,
+                         "No" = 1),
+          inline = TRUE
+        )
       ),
       mainPanel(
         h4("Initial Margin Required", style = "text-align:center;color:black;
@@ -29,38 +56,64 @@ my_ui <- shinyUI(
           style = "text-align:center"  
         ),
         
-        h4("Net profit (without fees)", style = "text-align:center;color:black;
-          background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
-          textOutput("net_profit"), 
-          style = "text-align:center"  
+          column(2),
+          column(3, 
+            h4("Profit"),
+            h4("(without fees)")
+          ),
+          column(2),
+          column(3, 
+                 h4("Net profit"),
+                 h4("(with fees deduction)")
+          ),
+          column(2),
+          style = "text-align:center;color:black;
+          background-color:lavender;border-radius:10px"
         ),
-
-        h4("Net return percentage", style = "text-align:center;color:black;
-          background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
-          textOutput("net_return_percentage"), 
-          style = "text-align:center"  
+          column(2),
+          column(3, 
+                 textOutput("profit_without_fees")
+          ),
+          column(2),
+          column(3, 
+                 textOutput("net_profit_with_fees")
+          ),
+          column(2),
+          style = "text-align:center;color:black"
         ),
         
-        h4("Initial Liquidation Price", style = "text-align:center;color:black;
-          background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
-          textOutput("initial_liquidation_price"), 
-          style = "text-align:center"  
+          column(2),
+          column(3, 
+                 h4("Return Percentage"),
+                 h4("(without fees)")
+          ),
+          column(2),
+          column(3, 
+                 h4("Net return percentage"),
+                 h4("(with fees deduction)")
+          ),
+          column(2),
+          style = "text-align:center;color:black;
+          background-color:lavender;border-radius:10px"
+        ),
+        fluidRow(
+          column(2),
+          column(3, textOutput("return_percentage")
+          ),
+          column(2),
+          column(3, textOutput("net_return_with_fees")
+          ),
+          column(2),
+          style = "text-align:center;color:black"
         ),
         
-        h4("Maintenance Margin", style = "text-align:center;color:black;
+        h4("Total Fees", style = "text-align:center;color:black;
           background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
-          textOutput("maintenance_margin"), 
-          style = "text-align:center"  
-        ),
-        
-        h4("Final Liquidation Price", style = "text-align:center;color:black;
-          background-color:lavender;padding:15px;border-radius:10px"),
-        fluidRow(
-          textOutput("final_liquidation_price"), 
+          textOutput("total_fees"), 
           style = "text-align:center"  
         ),
       )
