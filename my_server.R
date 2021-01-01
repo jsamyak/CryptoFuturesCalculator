@@ -8,7 +8,7 @@ my_server <- function(input, output) {
       "USDT")
   })
   
-  output$net_profit <- renderText({
+  output$profit_without_fees <- renderText({
     c(netProfitCalculator(input$entry_price, input$exit_price, input$asset_quantity),
       "USDT")
   })
@@ -21,6 +21,16 @@ my_server <- function(input, output) {
   
   output$total_fees <- renderText({
     c(totalFeesCalculator(input$trading_level,
+                          input$maker_or_taker,
+                          input$entry_price,
+                          input$exit_price,
+                          input$asset_quantity), 
+      "USDT")
+  })
+  
+  output$net_profit_with_fees <- renderText({
+    c(netProfitCalculator(input$entry_price, input$exit_price, input$asset_quantity) - 
+        totalFeesCalculator(input$trading_level,
                           input$maker_or_taker,
                           input$entry_price,
                           input$exit_price,

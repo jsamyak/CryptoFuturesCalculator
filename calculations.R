@@ -8,9 +8,8 @@ netProfitCalculator <- function(entryPrice, exitPrice, assetQuantity) {
   return ((exitPrice - entryPrice) * assetQuantity)
 }
 
-trading_fee <- read.csv("docs/feeStructure/USDTFuturesTradingFeeRate.csv", stringsAsFactors = FALSE)
-
-temppp <- select(trading_fee, "Maker...")
+trading_fee <- read.csv("docs/feeStructure/USDTFuturesTradingFeeRate.csv",
+                        stringsAsFactors = FALSE)
 
 totalFeesCalculator <- function(trading_level,
                                 maker_or_taker,

@@ -55,12 +55,34 @@ my_ui <- shinyUI(
           style = "text-align:center"  
         ),
         
-        h4("Net profit (without fees)", style = "text-align:center;color:black;
-          background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
-          textOutput("net_profit"), 
-          style = "text-align:center"  
+          column(2),
+          column(3, 
+            h4("Profit"),
+            h4("(without fees)")
+          ),
+          column(2),
+          column(3, 
+                 h4("Net profit"),
+                 h4("(with fees deduction)")
+          ),
+          column(2),
+          style = "text-align:center;color:black;
+          background-color:lavender"
         ),
+        fluidRow(
+          column(2),
+          column(3, 
+                 textOutput("profit_without_fees")
+          ),
+          column(2),
+          column(3, 
+                 textOutput("net_profit_with_fees")
+          ),
+          column(2),
+          style = "text-align:center;color:black"
+        ),
+        
 
         h4("Net return percentage", style = "text-align:center;color:black;
           background-color:lavender;padding:15px;border-radius:10px"),
