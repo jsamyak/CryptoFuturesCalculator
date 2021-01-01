@@ -45,7 +45,8 @@ my_ui <- shinyUI(
           p("Are you using bnb for fee payments?"),
           choices = list("Yes" = 0,
                          "No" = 1),
-          inline = TRUE
+          inline = TRUE,
+          selected = 1
         )
       ),
       mainPanel(
