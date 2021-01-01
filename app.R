@@ -19,7 +19,6 @@ my_ui <- shinyUI(
         numericInput("exit_price", "Exit Price", NA),
         numericInput("leverage", "Leverage", NA),
         numericInput("asset_quantity", "Asset Quantity", NA),
-        numericInput("maintenance_margin_rate", "Maintenance Margin Rate (in %)", NA)
       ),
       mainPanel(
         h4("Initial Margin Required", style = "text-align:center;color:black;
@@ -47,20 +46,6 @@ my_ui <- shinyUI(
           background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
           textOutput("initial_liquidation_price"), 
-          style = "text-align:center"  
-        ),
-        
-        h4("Maintenance Margin", style = "text-align:center;color:black;
-          background-color:lavender;padding:15px;border-radius:10px"),
-        fluidRow(
-          textOutput("maintenance_margin"), 
-          style = "text-align:center"  
-        ),
-        
-        h4("Final Liquidation Price", style = "text-align:center;color:black;
-          background-color:lavender;padding:15px;border-radius:10px"),
-        fluidRow(
-          textOutput("final_liquidation_price"), 
           style = "text-align:center"  
         ),
       )

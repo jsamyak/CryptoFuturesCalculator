@@ -21,17 +21,6 @@ my_server <- function(input, output) {
     c(initialLiquidationPriceCalculator(input$entry_price, input$leverage),
       "USDT")
   })
-  
-  output$maintenance_margin <- renderText({
-    c(maintenanceMarginCalculator(input$entry_price, input$maintenance_margin_rate),
-      "USDT")
-  })
-  
-  output$final_liquidation_price <- renderText({
-    c(initialLiquidationPriceCalculator(input$entry_price, input$leverage) +
-      maintenanceMarginCalculator(input$entry_price, input$maintenance_margin_rate),
-      "USDT")
-  })
 }
 
 initialMarginCalculator <- function(entryPrice, assetQuantity, leverage) {
@@ -44,10 +33,6 @@ netProfitCalculator <- function(entryPrice, exitPrice, assetQuantity) {
 
 initialLiquidationPriceCalculator <- function(entryPrice, leverage){
   return(entryPrice - (entryPrice / leverage))
-}
-
-maintenanceMarginCalculator <- function(entryPrice, maintenanceMarginRate) {
-  return(entryPrice * (maintenanceMarginRate / 100))
 }
 
 # input parameters
