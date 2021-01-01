@@ -9,13 +9,25 @@ my_server <- function(input, output) {
   })
   
   output$profit_without_fees <- renderText({
-    c(netProfitCalculator(input$entry_price, input$exit_price, input$asset_quantity),
+    c(profitCalculator(input$entry_price, input$exit_price, input$asset_quantity),
       "USDT")
   })
   
-  output$net_return_percentage <- renderText({
-    c(netProfitCalculator(input$entry_price, input$exit_price, input$asset_quantity) /
-      initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage) *100,
+  output$return_percentage <- renderText({
+    c(profitCalculator(input$entry_price, input$exit_price, input$asset_quantity) /
+      initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage) * 100,
+      "%")
+  })
+  
+  output$net_return_with_fees <- renderText({
+    c((profitCalculator(input$entry_price, input$exit_price, input$asset_quantity) - 
+        totalFeesCalculator(input$trading_level,
+                            input$maker_or_taker,
+                            input$entry_price,
+                            input$exit_price,
+                            input$asset_quantity)) / 
+        initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage) * 
+        100, 
       "%")
   })
   
@@ -29,7 +41,7 @@ my_server <- function(input, output) {
   })
   
   output$net_profit_with_fees <- renderText({
-    c(netProfitCalculator(input$entry_price, input$exit_price, input$asset_quantity) - 
+    c(profitCalculator(input$entry_price, input$exit_price, input$asset_quantity) - 
         totalFeesCalculator(input$trading_level,
                           input$maker_or_taker,
                           input$entry_price,

@@ -68,7 +68,7 @@ my_ui <- shinyUI(
           ),
           column(2),
           style = "text-align:center;color:black;
-          background-color:lavender"
+          background-color:lavender;border-radius:10px"
         ),
         fluidRow(
           column(2),
@@ -83,13 +83,34 @@ my_ui <- shinyUI(
           style = "text-align:center;color:black"
         ),
         
-
-        h4("Net return percentage", style = "text-align:center;color:black;
-          background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
-          textOutput("net_return_percentage"), 
-          style = "text-align:center"  
+          column(2),
+          column(3, 
+                 h4("Return Percentage"),
+                 h4("(without fees)")
+          ),
+          column(2),
+          column(3, 
+                 h4("Net return percentage"),
+                 h4("(with fees deduction)")
+          ),
+          column(2),
+          style = "text-align:center;color:black;
+          background-color:lavender;border-radius:10px"
         ),
+
+        fluidRow(
+          column(2),
+          column(3, textOutput("return_percentage")
+          ),
+          column(2),
+          column(3, textOutput("net_return_with_fees")
+          ),
+          column(2),
+          style = "text-align:center;color:black"
+        ),
+        
+        
         
         h4("Total Fees", style = "text-align:center;color:black;
           background-color:lavender;padding:15px;border-radius:10px"),
