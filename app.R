@@ -10,9 +10,18 @@ my_ui <- shinyUI(
     sidebarLayout(
       sidebarPanel(
         prettyRadioButtons(
-          "max_leverage",
-          p("Asset Maximum leverage"),
-          choices = list("125x" = 1, "100x" = 2, "75x" = 3, "50x" = 4, "20x" = 5),
+          "trading_level",
+          p("Trading Level"),
+          choices = list("VIP 0" = 0,
+                         "VIP 1" = 1,
+                         "VIP 2" = 2,
+                         "VIP 3" = 3,
+                         "VIP 4" = 4,
+                         "VIP 5" = 5,
+                         "VIP 6" = 6,
+                         "VIP 7" = 7,
+                         "VIP 8" = 8,
+                         "VIP 9" = 9),
           inline = TRUE
         ),
         numericInput("entry_price", "Entry Price", NA),
