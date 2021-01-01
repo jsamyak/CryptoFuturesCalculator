@@ -152,14 +152,7 @@ my_ui <- shinyUI(
           ),
           column(2),
           style = "text-align:center;color:black"
-        ),
-        
-        h4("Total Fees", style = "text-align:center;color:black;
-          background-color:lavender;padding:15px;border-radius:10px"),
-        fluidRow(
-          textOutput("total_fees"), 
-          style = "text-align:center"  
-        ),
+        )
       )
     ),
     hr(style = "border-top: 2px solid #000000;")
