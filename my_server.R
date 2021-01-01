@@ -18,6 +18,15 @@ my_server <- function(input, output) {
       initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage) *100,
       "%")
   })
+  
+  output$total_fees <- renderText({
+    c(totalFeesCalculator(input$trading_level,
+                          input$maker_or_taker,
+                          input$entry_price,
+                          input$exit_price,
+                          input$asset_quantity), 
+      "USDT")
+  })
 }
 
 # input parameters

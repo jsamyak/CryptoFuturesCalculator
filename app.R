@@ -33,9 +33,10 @@ my_ui <- shinyUI(
         prettyRadioButtons(
           "maker_or_taker",
           p("Maker / Taker"),
-          choices = list("Yes" = 0,
-                         "No" = 1),
-          inline = TRUE
+          choices = list("Maker" = 0,
+                         "Taker" = 1),
+          inline = TRUE,
+          selected = 1
         ),
         
         prettyRadioButtons(
@@ -65,6 +66,13 @@ my_ui <- shinyUI(
           background-color:lavender;padding:15px;border-radius:10px"),
         fluidRow(
           textOutput("net_return_percentage"), 
+          style = "text-align:center"  
+        ),
+        
+        h4("Total Fees", style = "text-align:center;color:black;
+          background-color:lavender;padding:15px;border-radius:10px"),
+        fluidRow(
+          textOutput("total_fees"), 
           style = "text-align:center"  
         ),
       )
