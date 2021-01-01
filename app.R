@@ -128,6 +128,22 @@ my_ui <- shinyUI(
           style = "text-align:center;color:black;
           background-color:lavender;border-radius:10px"
         ),
+        fluidRow(
+          column(2),
+          column(2,
+                 h4("Entry Fee")
+          ),
+          column(1),
+          column(2,
+                 h4("Exit Fee")
+          ),
+          column(1),
+          column(2,
+                 h4("Total Fee")
+          ),
+          column(2),
+          style = "text-align:center;color:black"
+        ),
         
         h4("Total Fees", style = "text-align:center;color:black;
           background-color:lavender;padding:15px;border-radius:10px"),
