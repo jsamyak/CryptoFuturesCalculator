@@ -1,5 +1,7 @@
 library(shiny)
 
+source("calculations.R")
+
 my_server <- function(input, output) {
   output$initial_margin <- renderText({
     c(initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage),
@@ -16,14 +18,6 @@ my_server <- function(input, output) {
       initialMarginCalculator(input$entry_price, input$asset_quantity, input$leverage) *100,
       "%")
   })
-}
-
-initialMarginCalculator <- function(entryPrice, assetQuantity, leverage) {
-  return (entryPrice * assetQuantity / leverage)
-}
-
-netProfitCalculator <- function(entryPrice, exitPrice, assetQuantity) {
-  return ((exitPrice - entryPrice) * assetQuantity)
 }
 
 # input parameters
