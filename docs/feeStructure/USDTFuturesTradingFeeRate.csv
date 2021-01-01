@@ -1,4 +1,4 @@
-﻿Level,Maker,Taker
+﻿Level,Maker(%),Taker(%)
 0,0.02,0.04
 1,0.016,0.04
 2,0.014,0.035
