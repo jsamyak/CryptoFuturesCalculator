@@ -154,20 +154,7 @@ my_ui <- shinyUI(
           style = "text-align:center;color:black"
         ),
         
-        fluidRow(
-          column(2),
-          column(2,
-                 h4("q")),
-          column(1),
-          column(2,
-                 h4("Exit price for")
-          ),
-          column(1),
-          column(2),
-          column(2),
-          style = "text-align:center;color:black;
-          background-color:lavender;border-radius:10px"
-        ),
+        hr(style = "border-top: 2px solid #000000;"),
         
         tableOutput("return_exit_price")
       )
