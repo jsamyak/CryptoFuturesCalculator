@@ -13,6 +13,7 @@ my_ui <- shinyUI(
         numericInput("exit_price", "Exit Price", NA),
         numericInput("leverage", "Leverage", NA),
         numericInput("asset_quantity", "Asset Quantity", NA),
+        numericInput("expected_return", "Return expected (in %)", NA),
         
         prettyRadioButtons(
           "trading_level",

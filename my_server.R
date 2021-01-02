@@ -84,7 +84,8 @@ my_server <- function(input, output) {
   })
   
   output$return_exit_price <- renderTable({
-    temp_matrix <- matrix(c(10,returnExitPriceCalculator(10, input$entry_price),
+    temp_matrix <- matrix(c(input$expected_return,returnExitPriceCalculator(input$expected_return, input$entry_price),
+                            10,returnExitPriceCalculator(10, input$entry_price),
                             25,returnExitPriceCalculator(25, input$entry_price),
                             50,returnExitPriceCalculator(50, input$entry_price),
                             75,returnExitPriceCalculator(75, input$entry_price),
