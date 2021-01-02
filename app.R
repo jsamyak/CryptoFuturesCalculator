@@ -13,6 +13,7 @@ my_ui <- shinyUI(
         numericInput("exit_price", "Exit Price", NA),
         numericInput("leverage", "Leverage", NA),
         numericInput("asset_quantity", "Asset Quantity", NA),
+        numericInput("expected_return", "Return expected (in %)", NA),
         
         prettyRadioButtons(
           "trading_level",
@@ -152,7 +153,11 @@ my_ui <- shinyUI(
           ),
           column(2),
           style = "text-align:center;color:black"
-        )
+        ),
+        
+        hr(style = "border-top: 2px solid #000000;"),
+        
+        tableOutput("return_exit_price")
       )
     ),
     hr(style = "border-top: 2px solid #000000;")

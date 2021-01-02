@@ -32,3 +32,8 @@ individualFeeCalculator <- function(trading_level,
   total_fee <- asset_price * asset_quantity * final_fee_rate / 100
   return(total_fee)
 }
+
+returnExitPriceCalculator <- function(return_percentage,
+                                      entry_price) {
+  return(entry_price + (entry_price * return_percentage / 100))
+}
