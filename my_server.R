@@ -82,6 +82,8 @@ my_server <- function(input, output) {
                                    input$bnb_fees)), 
       "USDT")
   })
+  
+  
 }
 
 # input parameters
