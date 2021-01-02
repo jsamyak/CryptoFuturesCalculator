@@ -83,7 +83,18 @@ my_server <- function(input, output) {
       "USDT")
   })
   
-  
+  output$return_exit_price <- renderTable({
+    temp_matrix <- matrix(c(10,43,
+                            25,92,
+                            50,21,
+                            75,22,
+                            100,1,
+                            125,1,
+                            150,1),ncol=2,byrow=TRUE)
+    colnames(temp_matrix) <- c("Return Percentage (in %)",
+                               "Exit Price Required (in USDT)")
+    return(temp_matrix)
+  })
 }
 
 # input parameters

@@ -168,6 +168,8 @@ my_ui <- shinyUI(
           style = "text-align:center;color:black;
           background-color:lavender;border-radius:10px"
         ),
+        
+        tableOutput("return_exit_price")
       )
     ),
     hr(style = "border-top: 2px solid #000000;")
