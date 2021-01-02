@@ -34,6 +34,7 @@ individualFeeCalculator <- function(trading_level,
 }
 
 returnExitPriceCalculator <- function(return_percentage,
-                                      entry_price) {
-  return(entry_price + (entry_price * return_percentage / 100))
+                                      entry_price,
+                                      leverage) {
+  return((entry_price * (return_percentage / 100) / leverage) + entry_price)
 }
