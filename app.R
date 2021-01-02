@@ -157,7 +157,13 @@ my_ui <- shinyUI(
         
         hr(style = "border-top: 2px solid #000000;"),
         
-        tableOutput("return_exit_price")
+        fluidRow(
+          column(5,
+                 tableOutput("return_exit_price")),
+          column(1),
+          column(5,
+                 tableOutput("return_exit_price_with_fees"))
+        )
       )
     ),
     hr(style = "border-top: 2px solid #000000;")

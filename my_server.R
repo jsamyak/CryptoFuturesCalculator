@@ -99,6 +99,10 @@ my_server <- function(input, output) {
                                "Exit Price Required (in USDT)")
     return(temp_matrix)
   })
+  
+  output$return_exit_price_with_fees <- renderTable({
+    
+  })
 }
 
 # input parameters
