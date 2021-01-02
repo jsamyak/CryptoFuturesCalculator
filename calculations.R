@@ -38,3 +38,13 @@ returnExitPriceCalculator <- function(return_percentage,
                                       leverage) {
   return((entry_price * (return_percentage / 100) / leverage) + entry_price)
 }
+
+returnExitPriceCalculatorWithFees <- function(expected_return,
+                                              entry_price,
+                                              asset_quantity,
+                                              leverage,
+                                              trading_level,
+                                              entry_maker_or_taker,
+                                              exit_maker_or_taker){
+  
+}

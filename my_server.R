@@ -101,7 +101,24 @@ my_server <- function(input, output) {
   })
   
   output$return_exit_price_with_fees <- renderTable({
-    
+    temp_matrix <- matrix(c(10, returnExitPriceCalculatorWithFees(input$expected_return,
+                                                                 input$entry_price,
+                                                                 input$asset_quantity,
+                                                                 input$leverage,
+                                                                 input$trading_level,
+                                                                 input$entry_maker_or_taker,
+                                                                 input$exit_maker_or_taker),
+                            25, returnExitPriceCalculatorWithFees(input$expected_return,
+                                                                  input$entry_price,
+                                                                  input$asset_quantity,
+                                                                  input$leverage,
+                                                                  input$trading_level,
+                                                                  input$entry_maker_or_taker,
+                                                                  input$exit_maker_or_taker)),
+                          ncol = 2, byrow = TRUE)
+    colnames(temp_matrix) <- c("Return Percentage (in %)",
+                               "Exit Price Required (in USDT)")
+    return(temp_matrix)
   })
 }
 

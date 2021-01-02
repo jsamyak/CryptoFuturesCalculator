@@ -160,7 +160,7 @@ my_ui <- shinyUI(
         fluidRow(
           column(5,
                  tableOutput("return_exit_price")),
-          column(1),
+          column(2),
           column(5,
                  tableOutput("return_exit_price_with_fees"))
         )
