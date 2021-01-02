@@ -84,13 +84,16 @@ my_server <- function(input, output) {
   })
   
   output$return_exit_price <- renderTable({
-    temp_matrix <- matrix(c(10,43,
-                            25,92,
-                            50,21,
-                            75,22,
-                            100,1,
-                            125,1,
-                            150,1),ncol=2,byrow=TRUE)
+    temp_matrix <- matrix(c(10,returnExitPriceCalculator(10, input$entry_price),
+                            25,returnExitPriceCalculator(25, input$entry_price),
+                            50,returnExitPriceCalculator(50, input$entry_price),
+                            75,returnExitPriceCalculator(75, input$entry_price),
+                            100,returnExitPriceCalculator(100, input$entry_price),
+                            125,returnExitPriceCalculator(125, input$entry_price),
+                            150,returnExitPriceCalculator(150, input$entry_price),
+                            175,returnExitPriceCalculator(175, input$entry_price),
+                            200,returnExitPriceCalculator(200, input$entry_price)
+                            ),ncol=2,byrow=TRUE)
     colnames(temp_matrix) <- c("Return Percentage (in %)",
                                "Exit Price Required (in USDT)")
     return(temp_matrix)
