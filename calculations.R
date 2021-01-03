@@ -38,3 +38,33 @@ returnExitPriceCalculator <- function(return_percentage,
                                       leverage) {
   return((entry_price * (return_percentage / 100) / leverage) + entry_price)
 }
+
+returnExitPriceCalculatorWithFees <- function(expected_return,
+                                              entry_price,
+                                              asset_quantity,
+                                              leverage,
+                                              trading_level,
+                                              entry_maker_or_taker,
+                                              exit_maker_or_taker){
+  entry_fee <- individualFeeCalculator(trading_level,
+                                         entry_maker_or_taker,
+                                         entry_price,
+                                         asset_quantity,
+                                         1) #########update bnb
+  
+  exit_fee <- individualFeeCalculator(trading_level,
+                                       exit_maker_or_taker,
+                                      returnExitPriceCalculator(expected_return,
+                                                                entry_price,
+                                                                leverage),
+                                       asset_quantity,
+                                       1) #########update bnb
+  
+  initial_margin_calculated <- initialMarginCalculator(entry_price,
+                                                         asset_quantity,
+                                                         leverage)
+  
+  temp_table <- filter(trading_fee, Level == trading_level)
+  
+  return(entry_price + ((expected_return / 100 * initial_margin_calculated + entry_fee + exit_fee) / asset_quantity))
+}

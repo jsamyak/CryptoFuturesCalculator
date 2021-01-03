@@ -1,5 +1,8 @@
 # CryptoFuturesCalculator
 
+### 3.1 Sample
+![V3.1](docs/images/v3.1.png)
+
 ### 3.0.1 Sample
 ![V3.0.1](docs/images/v3.0.1.png)
 
