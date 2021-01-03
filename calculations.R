@@ -46,5 +46,17 @@ returnExitPriceCalculatorWithFees <- function(expected_return,
                                               trading_level,
                                               entry_maker_or_taker,
                                               exit_maker_or_taker){
+  entry_fee <- individualFeeCalculator(trading_level,
+                                         entry_maker_or_taker,
+                                         entry_price,
+                                         asset_quantity,
+                                         1) #########update bnb
   
+  initial_margin_calculated <- initialMarginCalculator(entry_price,
+                                                         asset_quantity,
+                                                         leverage)
+  
+  temp_table <- filter(trading_fee, Level == trading_level)
+  
+  return(entry_price + ((expected_return / 100 * initial_margin_calculated + entry_fee * 2) / asset_quantity))
 }

@@ -101,14 +101,14 @@ my_server <- function(input, output) {
   })
   
   output$return_exit_price_with_fees <- renderTable({
-    temp_matrix <- matrix(c(10, returnExitPriceCalculatorWithFees(input$expected_return,
+    temp_matrix <- matrix(c(10, returnExitPriceCalculatorWithFees(10,
                                                                  input$entry_price,
                                                                  input$asset_quantity,
                                                                  input$leverage,
                                                                  input$trading_level,
                                                                  input$entry_maker_or_taker,
                                                                  input$exit_maker_or_taker),
-                            25, returnExitPriceCalculatorWithFees(input$expected_return,
+                            25, returnExitPriceCalculatorWithFees(25,
                                                                   input$entry_price,
                                                                   input$asset_quantity,
                                                                   input$leverage,
