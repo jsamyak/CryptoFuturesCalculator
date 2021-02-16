@@ -1,0 +1,12 @@
+name: CryptoFuturesCalculator
+title: CryptoFuturesCalculator
+username:
+account: samyakuw
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 3646652
+bundleId: 4231132
+url: https://samyakuw.shinyapps.io/CryptoFuturesCalculator/
+when: 1613500733.01888
+asMultiple: FALSE
+asStatic: FALSE
