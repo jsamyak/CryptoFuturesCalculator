@@ -1,5 +1,7 @@
 # CryptoFuturesCalculator
 
+Check it out on https://samyakuw.shinyapps.io/CryptoFuturesCalculator/ 
+
 ### 3.2 Sample
 ![V3.2](docs/images/v3.2.png)
 
